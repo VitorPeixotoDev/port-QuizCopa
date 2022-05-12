@@ -1,0 +1,189 @@
+:root {
+    --primary: hsla(0, 0%, 96%, 0.85);
+    --secondary: hsla(0, 0%, 50%, 0.85);
+    
+}
+
+body {
+    background: rgb(133,233,218);
+    background: linear-gradient(284deg, rgba(133,233,218,1) 15%, rgba(62,194,67,1) 78%); 
+}
+
+@font-face {
+    font-family: digital7;
+    src: url('./assets/fonts/digital-7.ttf');
+}
+
+.d-none {
+    display: none;
+}
+
+h1{
+    color: red;
+    text-align: center;
+    font-size: 90px;
+}
+
+.result p{
+    font-size: 40px;
+    color: whitesmoke;
+    text-align: center;
+    padding: 50px;
+    text-shadow: 4px 3px 0 grey;
+
+}
+
+.acertou {
+    font-family: digital7;
+    font-size: 150px;
+}
+
+.errou {
+    font-family: digital7;
+    font-size: 150px;
+}    
+
+.head {
+    background: linear-gradient(135deg, var(--primary), var(--secondary)),
+    url(./assets/flags.jpg);
+    border-radius: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+
+h2 {
+    text-align: center;
+    height: 100px;
+    padding: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-shadow: 4px 3px 0 whitesmoke;
+    font-size: 55px;
+
+}
+
+.question-block {
+    width: 800px;
+    height: 200px;
+    border: 1px solid gray;
+    margin: 50px auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 15px;
+    
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}    
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+label {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn {
+    width: 800px;
+    height: 200px;
+    margin: 50px auto;
+    background-color: none;
+    padding: 20px;
+    border-radius: 15px;
+}
+    
+.button {
+    position: relative;
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+    
+    margin-top: 90px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.button:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.ganhou {
+    animation: neonAnim 2s alternate-reverse infinite;
+    color: #fefb06;
+    font-family: Verdana;
+    font-size: 115px;
+}
+@keyframes neonAnim {
+    from {
+        text-shadow:
+          0 0 10px rgba(184, 181, 3, .7),
+          0 0 40px rgba(184, 181, 3, .7),
+          0 0 100px rgba(184, 181, 3, .7);
+      }
+      to {
+        text-shadow:
+          0 0 5px rgba(184, 181, 3, .7),
+          0 0 20px rgba(184, 181, 3, .7),
+          0 0 60px rgba(184, 181, 3, .7);
+      }
+}
+
+.empatou {
+    animation: neonAnim 2s alternate-reverse infinite;
+    color: #0d60dd;
+    font-family: Verdana;
+    font-size: 115px;
+}
+@keyframes neonAnim {
+    from {
+        text-shadow:
+          0 0 10px rgba(13, 96, 221, .7),
+          0 0 40px rgba(13, 96, 221, .7),
+          0 0 100px rgba(13, 96, 221, .7);
+      }
+      to {
+        text-shadow:
+          0 0 5px rgba(13, 96, 221, .7),
+          0 0 20px rgba(13, 96, 221, .7),
+          0 0 60px rgba(13, 96, 221, .7);
+      }
+}
+
+.perdeu {
+    animation: neonAnim 2s alternate-reverse infinite;
+    color: #f72e2e;
+    font-family: Verdana;
+    font-size: 115px;
+}
+@keyframes neonAnim {
+    from {
+        text-shadow:
+          0 0 10px rgba(250, 61, 61, 0.7),
+          0 0 40px rgba(250, 61, 61, 0.7),
+          0 0 100px rgba(250, 61, 61, 0.7);
+      }
+      to {
+        text-shadow:
+          0 0 5px rgba(250, 61, 61, 0.7),
+          0 0 20px rgba(250, 61, 61, 0.7),
+          0 0 60px rgba(250, 61, 61, 0.7);
+      }
+}
+
+

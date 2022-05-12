@@ -1,0 +1,74 @@
+:root {
+    --primary: hsla(0, 0%, 96%, 0.65);
+    --secondary: hsla(0, 0%, 50%, 0.65);
+    
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200&family=Montserrat:wght@400;500;600&family=Roboto:wght@100&display=swap');
+
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary)),
+                url(./assets/taca2.jpg) no-repeat center / cover ;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+h2 {
+    margin: 40px auto;
+}
+
+.question-block {
+    max-width: 700px;
+    background-color:   #035603;
+    color: whitesmoke;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 30px;
+    color: rgba(245, 245, 245, 0.801);
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+label {
+    padding: 10px;
+}
+
+
+.d-none {
+    display: none;
+}
+
+.button {
+    padding: 55px 350px;
+    background-color: whitesmoke;
+    color: #035603;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+.btn {
+    margin-top: 140px;
+    margin-bottom: 140px;
+}
+
+.option {
+    background-color: #163616;
+}
