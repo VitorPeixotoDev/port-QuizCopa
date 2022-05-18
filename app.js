@@ -1,59 +1,34 @@
-const form = document.querySelector('.quiz-form')
-const finalResult = document.querySelector('.result')
+const form = document.querySelector('form')
+const finalScoreContainer = document.querySelector('.final-score-container')
 const greenAnswers = document.querySelectorAll('.green')
 const correctAnswers = ['B', 'B', 'B', 'A', 'D', 'C', 'A', 'D', 'B', 'A']
 const h1 = document.querySelector('h1')
 
-form.addEventListener('submit', event => {
-    event.preventDefault()
+let correct = 0
+let wrong = 0
 
-    let correct = 0
-    let wrong = 0
-
-    const userAnswers = [
-        form.inputQuestion1.value,
-        form.inputQuestion2.value, 
-        form.inputQuestion3.value, 
-        form.inputQuestion4.value,
-        form.inputQuestion5.value,
-        form.inputQuestion6.value,
-        form.inputQuestion7.value,
-        form.inputQuestion8.value,
-        form.inputQuestion9.value,
-        form.inputQuestion10.value
-    ]
-
-    userAnswers.forEach((userAnswer, index) => {
-        return userAnswer === correctAnswers[index] 
-            ? correct += 1
-            : wrong += 1
+const getUserAnswers = () => {
+    let userAnswers = []
+    correctAnswers.forEach((_, index) => {
+        const userAnswer = form[`inputQuestion${index +1}`].value
+        userAnswers.push(userAnswer)
     })
+    return userAnswers
+}
 
-    greenAnswers.forEach(greenAnswer => {
-        greenAnswer.style.color = 'green'
+const logMessageResult = (correctAnswers, wrongAnswers) => {
+    scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
     })
+    finalScoreContainer.classList.remove('d-none')
 
-    scrollTo(0, 0)
-
-    
-    finalResult.classList.remove('d-none')
-
-
-    let counter = 0
-    const timer = setInterval(() => {
-        counter < 10 ? clearInterval(timer) : null
-        finalResult.querySelector('.errou').textContent = `${wrong}`
-        finalResult.querySelector('.acertou').textContent = `${correct}`
-        
-        counter++
-    }, 500)
-
-
-    if(correct > wrong){
+    if(correctAnswers > wrongAnswers){
         h1.innerHTML = 'GANHOU!!!'
         h1.classList.remove('d-none')
         h1.classList.add('ganhou')
-    }else if(correct === wrong){
+    }else if(correctAnswers === wrongAnswers){
         h1.innerHTML = 'EMPATOU'
         h1.classList.remove('d-none')
         h1.classList.add('empatou')
@@ -62,4 +37,38 @@ form.addEventListener('submit', event => {
         h1.classList.remove('d-none')
         h1.classList.add('perdeu')
     }
+}
+
+const calculateUserScore = arrayOfUsersAnswers => {
+    arrayOfUsersAnswers.forEach((userAnswer, index) => {
+        const isUserAnswersCorrect = userAnswer === correctAnswers[index] 
+
+        return isUserAnswersCorrect
+            ? correct += 1
+            : wrong += 1
+    })
+}
+
+const markingInGreenACorrectAnswer = () => {
+    greenAnswers.forEach(greenAnswer => {
+        greenAnswer.style.color = 'green'
+    })
+}
+
+const counterScores = (correct, wrong) => {
+    for(let i = 0; i < 10; i++){
+        finalScoreContainer.querySelector('.errou').textContent = `${wrong}`
+        finalScoreContainer.querySelector('.acertou').textContent = `${correct}`
+    }
+}
+
+form.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const userAnswers = getUserAnswers()
+
+    calculateUserScore(userAnswers)
+    markingInGreenACorrectAnswer()
+    counterScores(correct, wrong)
+    logMessageResult(correct, wrong)
 })
